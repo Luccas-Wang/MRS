@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 import csv
 import numpy as np
-import scipy
-import scipy.io
-import scipy.sparse as sp
+# import scipy
+# import scipy.io
+# import scipy.sparse as sp
 
 ### Check the README.md for more details, especially on parameters of the functions
 
@@ -40,7 +40,8 @@ def preprocess_data(data):
     print("number of items: {}, number of users: {}".format(max_col, max_row))
 
     # build rating matrix.
-    ratings = sp.lil_matrix((max_row, max_col))
+#     ratings = sp.lil_matrix((max_row, max_col))
+    ratings = np.zeros((max_row, max_col))
     ids = np.zeros((len(data), 2), dtype=np.int)
     i = 0
     for row, col, rating in data:
@@ -59,8 +60,10 @@ def split_data(ratings, p_test=0.1):
     
     # init
     num_rows, num_cols = valid_ratings.shape
-    train = sp.lil_matrix((num_rows, num_cols))
-    test = sp.lil_matrix((num_rows, num_cols))
+#     train = sp.lil_matrix((num_rows, num_cols))
+#     test = sp.lil_matrix((num_rows, num_cols))
+    train = np.zeros((num_rows, num_cols))
+    test = np.zeros((num_rows, num_cols))
     
     print("the shape of original ratings. (# of row, # of col): {}".format(
         ratings.shape))
