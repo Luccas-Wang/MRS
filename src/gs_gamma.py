@@ -32,5 +32,4 @@ for gamma in gammas:
                                           K, lambda_user, lambda_item,
                                           num_epochs, user_init, item_init)
     errors.append(rmse)
-    
-np.save('rmse_gamma.npy', errors)
+    np.save('rmse_gamma.npy', errors)

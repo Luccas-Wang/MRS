@@ -22,7 +22,7 @@ gamma = 0.025 # best gamma we found above
 num_epochs = 20
 lambdas_user = np.logspace(-3,0,4)[::-1] #From max to min
 lambdas_item = np.logspace(-3,0,4)[::-1]
-num_features = np.linspace(20,100,4)
+num_features = np.array([10, 20, 50 ,100])
 min_loss = 100000
 best_user_features = []
 best_item_features = []
@@ -42,5 +42,4 @@ for x,K in enumerate(num_features):
                 best_user_features = np.copy(user_feats)
                 best_item_features = np.copy(item_feats)
             grid[x, y, z] = rmse
-
-np.save('rmse_lambda_K.npy', grid)
+        np.save('rmse_lambda_K.npy', grid)
