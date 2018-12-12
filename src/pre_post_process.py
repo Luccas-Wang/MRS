@@ -83,9 +83,9 @@ def split_data(ratings, p_test=0.1):
         # add to test set
         test[selects, user] = valid_ratings[selects, user]
 
-    print("Total number of nonzero elements in origial data:{v}".format(v=len(ratings.nnz)))
-    print("Total number of nonzero elements in train data:{v}".format(v=len(train.nnz)))
-    print("Total number of nonzero elements in test data:{v}".format(v=len(test.nnz)))
+    print("Total number of nonzero elements in origial data:{v}".format(v=ratings.nnz))
+    print("Total number of nonzero elements in train data:{v}".format(v=train.nnz))
+    print("Total number of nonzero elements in test data:{v}".format(v=test.nnz))
     return valid_ratings, train, test
 
 """Post process for submissions"""
