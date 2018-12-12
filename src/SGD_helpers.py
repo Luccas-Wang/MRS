@@ -1,5 +1,5 @@
 import numpy as np
-import scipy.sparse as sp
+from mpiutil import mprint
 
 ### Check the README.md for more details, especially on parameters of the functions
 
@@ -36,12 +36,12 @@ def matrix_factorization_SGD(train, test, gamma, num_features, lambda_user, lamb
         nz_row, nz_col = test.nonzero()
         nz_test = list(zip(nz_row, nz_col))
         
-    # make copy of user_features and item_features matrices and modify the copies    
+    # make copy of user_features and item_features matrices and modify the copies
     user_features = np.copy(user_feat)
     item_features = np.copy(item_feat)
-    print("Learn the matrix factorization using SGD with K = {}, lambda_i = {}, lambda_u = {}, num_epochs = {}".format(num_features, lambda_item, lambda_user, num_epochs))
+    mprint("Learn the matrix factorization using SGD with K = {}, lambda_i = {}, lambda_u = {}, num_epochs = {}".format(num_features, lambda_item, lambda_user, num_epochs))
     
-    for it in range(num_epochs):        
+    for it in range(num_epochs):
         # shuffle the training rating indices
         np.random.shuffle(nz_train)
         
@@ -59,10 +59,10 @@ def matrix_factorization_SGD(train, test, gamma, num_features, lambda_user, lamb
             
         rmse = compute_error(train, user_features, item_features, nz_train)
         if(it % 5 == 0 or it == num_epochs - 1):
-            print("iter: {}, RMSE on training set: {}.".format(it, rmse))
+            mprint("iter: {}, RMSE on training set: {}.".format(it, rmse))
 
     # evaluate the test error
     if include_test:
         rmse = compute_error(test, user_features, item_features, nz_test)
-        print("RMSE on test data: {}.".format(rmse))
+        mprint("RMSE on test data: {}.".format(rmse))
     return item_features, user_features, rmse
