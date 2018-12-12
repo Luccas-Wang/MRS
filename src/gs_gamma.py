@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 
 import numpy as np
-from mpiutil import mprint
 
 dat_dir = '../data/'
 sub_dir = '../submit/'
@@ -11,9 +10,9 @@ from pre_post_process import *
 
 _, ratings = load_data(dat_dir + "data_train.csv")
 sample_ids, _ = load_data(dat_dir + "sample_submission.csv")
-mprint(np.shape(ratings))
+print(np.shape(ratings))
 
-valid_ratings, train, test = split_data(ratings, p_test=0.2)
+valid_ratings, train, test = split_data(ratings, p_test=0.1)
 
 from SGD_helpers import *
 
@@ -33,3 +32,5 @@ for gamma in gammas:
                                           K, lambda_user, lambda_item,
                                           num_epochs, user_init, item_init)
     errors.append(rmse)
+    
+np.save('rmse_gamma.npy', errors)

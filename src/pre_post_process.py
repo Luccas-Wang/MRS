@@ -4,7 +4,6 @@ import numpy as np
 import scipy
 import scipy.io
 import scipy.sparse as sp
-from mpiutil import mprint
 
 ### Check the README.md for more details, especially on parameters of the functions
 
@@ -38,7 +37,7 @@ def preprocess_data(data):
     data = [deal_line(line) for line in data]
     # do statistics on the dataset.
     min_row, max_row, min_col, max_col = statistics(data)
-    mprint("number of items: {}, number of users: {}".format(max_col, max_row))
+    print("number of items: {}, number of users: {}".format(max_col, max_row))
 
     # build rating matrix.
     ratings = sp.lil_matrix((max_row, max_col))
@@ -64,9 +63,9 @@ def split_data(ratings, p_test=0.1):
     train = sp.lil_matrix((num_rows, num_cols))
     test = sp.lil_matrix((num_rows, num_cols))
     
-    mprint("the shape of original ratings. (# of row, # of col): {}".format(
+    print("the shape of original ratings. (# of row, # of col): {}".format(
         ratings.shape))
-    mprint("the shape of valid ratings. (# of row, # of col): {}".format(
+    print("the shape of valid ratings. (# of row, # of col): {}".format(
         (num_rows, num_cols)))
 
     nz_items, nz_users = valid_ratings.nonzero()
@@ -84,9 +83,9 @@ def split_data(ratings, p_test=0.1):
         # add to test set
         test[selects, user] = valid_ratings[selects, user]
 
-    mprint("Total number of nonzero elements in origial data:{v}".format(v=ratings.nnz))
-    mprint("Total number of nonzero elements in train data:{v}".format(v=train.nnz))
-    mprint("Total number of nonzero elements in test data:{v}".format(v=test.nnz))
+    print("Total number of nonzero elements in origial data:{v}".format(v=ratings.nnz))
+    print("Total number of nonzero elements in train data:{v}".format(v=train.nnz))
+    print("Total number of nonzero elements in test data:{v}".format(v=test.nnz))
     return valid_ratings, train, test
 
 """Post process for submissions"""

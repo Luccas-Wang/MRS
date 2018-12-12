@@ -1,5 +1,4 @@
 import numpy as np
-from mpiutil import mprint
 
 ### Check the README.md for more details, especially on parameters of the functions
 
@@ -21,8 +20,7 @@ def compute_error(data, user_features, item_features, nz):
         mse += (data[row, col] - user_info.T.dot(item_info)) ** 2
     return np.sqrt(1.0 * mse / len(nz))
 
-def matrix_factorization_SGD(train, test, gamma, num_features, lambda_user, lambda_item, num_epochs,
-                             user_feat, item_feat, include_test = True):
+def matrix_factorization_SGD(train, test, gamma, num_features, lambda_user, lambda_item, num_epochs, user_feat, item_feat, include_test = True):
     """matrix factorization by SGD. include_test set to False if we want to train on the whole ratings matrix, thus we have no test"""
     # set seed
     np.random.seed(988)
@@ -39,7 +37,7 @@ def matrix_factorization_SGD(train, test, gamma, num_features, lambda_user, lamb
     # make copy of user_features and item_features matrices and modify the copies
     user_features = np.copy(user_feat)
     item_features = np.copy(item_feat)
-    mprint("Learn the matrix factorization using SGD with K = {}, lambda_i = {}, lambda_u = {}, num_epochs = {}".format(num_features, lambda_item, lambda_user, num_epochs))
+    print("Learn the matrix factorization using SGD with K = {}, gamma = {}, lambda_i = {}, lambda_u = {}, num_epochs = {}".format(num_features, gamma, lambda_item, lambda_user, num_epochs))
     
     for it in range(num_epochs):
         # shuffle the training rating indices
@@ -59,10 +57,10 @@ def matrix_factorization_SGD(train, test, gamma, num_features, lambda_user, lamb
             
         rmse = compute_error(train, user_features, item_features, nz_train)
         if(it % 5 == 0 or it == num_epochs - 1):
-            mprint("iter: {}, RMSE on training set: {}.".format(it, rmse))
+            print("iter: {}, RMSE on training set: {}.".format(it, rmse))
 
     # evaluate the test error
     if include_test:
         rmse = compute_error(test, user_features, item_features, nz_test)
-        mprint("RMSE on test data: {}.".format(rmse))
+        print("RMSE on test data: {}.".format(rmse))
     return item_features, user_features, rmse
