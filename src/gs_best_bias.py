@@ -31,5 +31,5 @@ user_init, item_init = init_MF(bias_train, K)
 item_featuresSGD, user_featuresSGD, rmse = matrix_factorization_SGD(bias_train, bias_test, gamma, K, lambda_user, lambda_item, num_epochs, user_init, item_init)
 
 tempt_dir = './'
-np.save(tempt_dir + 'item_features_bias.pk',item_featuresSGD)
-np.save(tempt_dir + 'user_features_bias.pk',user_featuresSGD)
+np.save(tempt_dir + 'item_features_bias.npy',item_featuresSGD)
+np.save(tempt_dir + 'user_features_bias.npy',user_featuresSGD)
