@@ -32,6 +32,8 @@ min_loss = 100000
 best_user_features = []
 best_item_features = []
 
+tempt_dir = '../submit/'
+
 for x,K in enumerate(num_features):
     ### Warm start: directly start computation from previously computed item_features and user_features and not random initialization 
     user_init, item_init = init_MF(train, int(K))
@@ -47,6 +49,10 @@ for x,K in enumerate(num_features):
                 best_user_features = np.copy(user_feats)
                 best_item_features = np.copy(item_feats)
             grid[x, y, z] = rmse
-        np.save('grid.npy', grid)
-        np.save('best_user_features_bias.npy', best_user_features)
-        np.save('best_item_features_bias.npy', best_item_features)
+            
+            np.save(tempt_dir + 'user_feature_'+ str(x) +'_'+ str(y) + '_'+ str(z) +'.npy', user_feats)
+            np.save(tempt_dir +'item_feature_'+ str(x) +'_'+ str(y) + '_'+ str(z) +'.npy', item_feats)
+            
+            np.save('grid.npy', grid)
+            np.save('best_user_features_bias.npy', best_user_features)
+            np.save('best_item_features_bias.npy', best_item_features)
