@@ -17,9 +17,9 @@ valid_ratings, train, test = split_data(ratings, p_test=0.1)
 from SGD_helpers import *
 
 best_gamma = 0.025
-best_lambda_u = 0.001
-best_lambda_i = 0.001
-K = 50
+best_lambda_u = 0.1
+best_lambda_i = 0.01
+K = 20
 num_epochs = 50
 
 user_init, item_init = init_MF(ratings, K)

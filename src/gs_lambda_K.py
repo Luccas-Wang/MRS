@@ -33,7 +33,7 @@ for x,K in enumerate(num_features):
     for y,lambda_u in enumerate(lambdas_user):
         for z,lambda_i in enumerate(lambdas_item):
             print("K = {}, lambda_u = {}, lambda_i = {}".format(int(K), lambda_u, lambda_i))
-            item_feats, user_feats, rmse = matrix_factorization_SGD(train, test, gamma, int(K), lambda_u, lambda_i, num_epochs, user_init, item_init)
+            item_feats, user_feats, rmse = matrix_factorization_SGD(bias_train, bias_test, gamma, int(K), lambda_u, lambda_i, num_epochs, user_init, item_init)
             ### For warm start, we keep the user_features and item_features that gave us the minimal rmse previously computed
             if rmse < min_loss:
                 min_loss = rmse
