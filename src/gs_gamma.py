@@ -17,7 +17,7 @@ valid_ratings, train, test = split_data(ratings, p_test=0.1)
 from SGD_helpers import *
 
 # Finding gamma:
-gammas = np.logspace(-2,-1,4)
+gammas = np.logspace(-2,-1,6)
 K = 10
 lambda_user = 0.1
 lambda_item = 0.01
