@@ -6,7 +6,7 @@ import numpy as np
 dat_dir = '../data/'
 sub_dir = '../submit/'
 
-from pre_post_process import *
+from pre_post_process import load_data, split_data
 
 _, ratings = load_data(dat_dir + "data_train.csv")
 sample_ids, _ = load_data(dat_dir + "sample_submission.csv")
@@ -14,7 +14,7 @@ print(np.shape(ratings))
 
 valid_ratings, train, test = split_data(ratings, p_test=0.1)
 
-from SGD_helpers import *
+from SGD_helpers import init_MF, matrix_factorization_SGD
 
 best_gamma = 0.025
 best_lambda_u = 0.1

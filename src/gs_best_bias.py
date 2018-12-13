@@ -12,7 +12,7 @@ _, ratings = load_data(dat_dir + "data_train.csv")
 sample_ids, _ = load_data(dat_dir + "sample_submission.csv")
 print(np.shape(ratings))
 
-valid_ratings, train, test = split_data(ratings, p_test=0.)
+valid_ratings, train, test = split_data(ratings, p_test=0.1)
 
 from bias_helpers import computeBiasMatrix
 bias_train, mean, bias_u_train, bias_i_train = computeBiasMatrix(train) #ratings for final submissions

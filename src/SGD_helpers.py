@@ -61,7 +61,8 @@ def matrix_factorization_SGD(train, test, gamma, num_features, lambda_user, lamb
             print("iter: {}, RMSE on training set: {}.".format(it, rmse))
         
     # evaluate the test error
-    rmse = compute_error(test, user_features, item_features, nz_test)
-    print("RMSE on test data: {}.".format(rmse))
-    
+    if nz_test > 0:
+        rmse = compute_error(test, user_features, item_features, nz_test)
+        print("RMSE on test data: {}.".format(rmse))
+
     return item_features, user_features, rmse
