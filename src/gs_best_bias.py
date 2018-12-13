@@ -14,9 +14,11 @@ print(np.shape(ratings))
 
 valid_ratings, train, test = split_data(ratings, p_test=0.1)
 
-from bias_helpers import computeBiasMatrix
-bias_train, mean, bias_u_train, bias_i_train = computeBiasMatrix(train) #ratings for final submissions
-bias_test, _, _, _ = computeBiasMatrix(test)
+from MF_helpers import get_bias_train, get_bias_test
+
+bias_train, total_bias, bias_u_train, bias_i_train = get_bias_train(train) #ratings for final submissions
+bias_test = get_bias_test(test, total_bias, bias_u_train, bias_i_train)
+
 
 from SGD_helpers import init_MF, matrix_factorization_SGD
 # define parameters

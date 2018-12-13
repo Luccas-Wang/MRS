@@ -6,7 +6,7 @@ import numpy as np
 dat_dir = '../data/'
 sub_dir = '../submit/'
 
-from pre_post_process import *
+from pre_post_process import load_data, split_data
 
 _, ratings = load_data(dat_dir + "data_train.csv")
 sample_ids, _ = load_data(dat_dir + "sample_submission.csv")
@@ -14,12 +14,12 @@ print(np.shape(ratings))
 
 _, train, test = split_data(ratings, p_test=0.1)
 
-from SGD_helpers import *
+from SGD_helpers import init_MF, matrix_factorization_SGD
 
-from bias_helpers import *
+from MF_helpers import get_bias_train, get_bias_test
 
-bias_train, mean, bias_u_train, bias_i_train = computeBiasMatrix(train) #ratings for final submissions
-bias_test, _, _, _ = computeBiasMatrix(test)
+bias_train, overal_bias, bias_u_train, bias_i_train = get_bias_train(train) #ratings for final submissions
+bias_test = get_bias_test(test, overal_bias, bias_u_train, bias_i_train)
 
 # Grid Search:
 grid = np.zeros((3, 4, 4))
@@ -42,11 +42,11 @@ for x,K in enumerate(num_features):
             ### For warm start, we keep the user_features and item_features that gave us the minimal rmse previously computed
             if rmse < min_loss:
                 min_loss = rmse
-                user_init = user_feats
-                item_init = item_feats
+#                 user_init = user_feats
+#                 item_init = item_feats
                 best_user_features = np.copy(user_feats)
                 best_item_features = np.copy(item_feats)
             grid[x, y, z] = rmse
         np.save('grid.npy', grid)
-        np.save('best_user_features.npy', best_user_features)
-        np.save('best_item_features.npy', best_item_features)
+        np.save('best_user_features_bias.npy', best_user_features)
+        np.save('best_item_features_bias.npy', best_item_features)

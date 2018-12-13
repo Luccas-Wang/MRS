@@ -7,6 +7,30 @@
 | 20/11/2018 | 18:30 | TNA      |
 | ···        | ···   | ···      |
 
+
+- bias_helpers.py --> MF_helpers.py
+1. function
+computeBiasMatrix --> get_bias_test and get_bias_train 
+
+Note using the same bias
+
+predictionsWithBias --> predict_with_bias and predict_no_bias
+
+2. variable
+
+
+
+- collaborative.py
+-- movie_user_predictions
+-- getTopKNeighbors
+-- compute_matrix_predictions
+
+
+
+
+
+
+
 This project contains the following elements :
 - PDF Report of the Project
 - 3 iPython Notebooks: Recommender_Collaborative.ipynb, Recommender_Factorization.ipynb, Recommender_Surprise.ipynb
