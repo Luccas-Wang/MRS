@@ -25,13 +25,11 @@ K = 20
 lambda_user = 0.01
 lambda_item = 0.1
 num_epochs = 50
+
 user_init, item_init = init_MF(bias_train, K)
 
 item_featuresSGD, user_featuresSGD, rmse = matrix_factorization_SGD(bias_train, bias_test, gamma, K, lambda_user, lambda_item, num_epochs, user_init, item_init)
 
-import pickle
 tempt_dir = './'
-with open(tempt_dir + 'item_features_bias.pk','wb') as f:
-    pickle.dump(item_featuresSGD, f)
-with open(tempt_dir + 'user_features_bias.pk','wb') as f:
-    pickle.dump(user_featuresSGD, f)
+np.save(tempt_dir + 'item_features_bias.pk',item_featuresSGD)
+np.save(tempt_dir + 'user_features_bias.pk',user_featuresSGD)
