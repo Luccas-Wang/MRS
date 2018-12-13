@@ -23,10 +23,10 @@ K = 20
 num_epochs = 50
 
 user_init, item_init = init_MF(ratings, K)
-item_feats_SGD, user_feats_SGD, rmse = matrix_factorization_SGD(ratings, test, best_gamma, K, best_lambda_u, best_lambda_i, num_epochs,user_init, item_init, include_test = True)
+item_feats_SGD, user_feats_SGD, rmse = matrix_factorization_SGD(ratings, test, best_gamma, K, best_lambda_u, best_lambda_i, num_epochs,user_init, item_init)
 
 import pickle
-tempt_dir = '../data/'
+tempt_dir = './'
 with open(tempt_dir + 'item_feats_SGD.pk','wb') as f:
     pickle.dump(item_feats_SGD, f)
 with open(tempt_dir + 'user_feats_SGD.pk','wb') as f:
