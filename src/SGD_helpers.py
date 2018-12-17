@@ -5,11 +5,11 @@ import numpy as np
 
 def init_MF(train, num_features):
     """init the parameter for matrix factorization."""
-        
+    
     num_item, num_user = train.get_shape()
 
-    user_features = np.random.rand(num_features, num_user)
-    item_features = np.random.rand(num_features, num_item)
+    user_features = np.random.rand(num_features, num_user)/num_features
+    item_features = np.random.rand(num_features, num_item)/num_features
 
     # start by item features.
     item_nnz = train.getnnz(axis=1)
