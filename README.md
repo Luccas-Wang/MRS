@@ -19,12 +19,12 @@ predictionsWithBias --> predict_with_bias and predict_no_bias
 2. variable
 
 
-
-- collaborative.py
--- movie_user_predictions
--- getTopKNeighbors
--- compute_matrix_predictions
-
+Not included
+    - collaborative.py --> CF_helpers.py
+    -- movie_user_predictions           --> get_users_per_item.py
+    -- getTopKNeighbors                 --> get_K_best.py
+    -- compute_matrix_predictions       --> prediction_by_item.py
+    -- compute_predictions_movie        --> get_KNN.py
 
 
 
