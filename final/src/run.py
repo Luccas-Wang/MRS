@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 import numpy as np
-import scipy.sparse as sp
 from data_process import load_data, split_data
 from SGD_helpers import init_MF, matrix_factorization_SGD
 
