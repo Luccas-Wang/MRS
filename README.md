@@ -14,10 +14,18 @@
   - SGD_helpers.py (module for SGD, mostly matching the lab)
   - MF_helpers.py (module for the bias matrix factorization and user-item ratings matrix)
   ---
-  - run.py (main script for submission the final results)
-  
+  - run.py (main script for submiting the final results)
+  - run.py (main script for submiting the final results)
+
 ## Codes
-- PDF Report of the Project
+### Prerequisites
+- Python 3.6+
+- Numpy
+- Scipy
+- Pandas
+
+> #### Note for running implement_surprise.py, some other libraries are required. Please refer to the script for details.
+
 - 1 iPython Notebooks: Recommender_Collaborative.ipynb, Recommender_Factorization.ipynb, Recommender_Surprise.ipynb
 - 5 python modules : pre_post_process.py, collaborative.py, SGD_helpers.py, bias_helpers.py run.py
 
