@@ -1,4 +1,4 @@
-# MRS
+# EPFL Machine Learning CS-433 - Project II: Recommender System
 
 > #### Contents
 
