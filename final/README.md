@@ -1,6 +1,6 @@
 # EPFL CS-433 - Project II: Recommender System
 
-CrowdAI: Username: HUANG Ruibin, Submission ID: 25039
+CrowdAI: Username: HUANG Ruibin, Submission ID: 25039, email address: ruibin.huang@epfl.ch
 
 ## Contents
 - README.MD (this)
