@@ -51,19 +51,8 @@ To run run.py:
         6. Creation of csv file for the submission.
 
 2. Python modules :
-    - data_process.py : This module transforms the data of a csv file into a sparse ratings matrix and functions to convert the final made predictions the correct format. It contains the following important functions:
+    - data_process.py : This module transforms the data of a csv file into a sparse ratings matrix, split the data and functions to convert the final made predictions the correct format. 
 
-        - preprocess_data(data):
-            Parameters: 
-            Returns:
+    - SGD_helpers.py : This module initialize the parameters for matrix factorization, compute RMSE and compute the SGD.
 
-    - SGD_helpers.py : This module executes the program
-
-        - preprocess_data(data):
-            Parameters:
-            Returns:
-
-    - MF_helpers.py : This module executes the program
-        - preprocess_data(data):
-            Parameters:
-            Returns:
+    - MF_helpers.py : This module computes the bias of users and items and computes the global average.
