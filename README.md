@@ -59,6 +59,6 @@
 To run run.py:
 - On Mac/Windows : 
   - Open the Terminal, enter the zipped folder, enter to the folder *./src/*; 
-  - To execute enter : python run.py;
-  - submission.py is in *./submit/*;
-  - item_feats_SGD.npy and user_feats_SGD.npy are in *./submit/*.
+  - To execute in  *./src/*, enter : python run.py;
+  - submission.py is generated in *../submit/*;
+  - item_feats_SGD.npy and user_feats_SGD.npy are stored in *../data/*.
