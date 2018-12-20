@@ -51,14 +51,17 @@ To run run.py:
 		6. Creation of csv file for the submission.
 
 2. Python modules :
-    - data_process.py : This module allows us to transform the data of a csv file into a sparse ratings matrix and functions to convert the final made predictions in a csv file of the correct format expected by the Kaggle competition. It contains the following important functions:
+    - data_process.py : This module transforms the data of a csv file into a sparse ratings matrix and functions to convert the final made predictions the correct format. It contains the following important functions:
 							
 			- preprocess_data(data):
 				Parameters:
 				Returns:
-				
+			- preprocess_data(data):
+				Parameters:
+				Returns:	
 				
     - SGD_helpers.py : This module executes the program
+    
 			- preprocess_data(data):
 				Parameters:
 				Returns:
