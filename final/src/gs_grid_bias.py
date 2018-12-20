@@ -2,11 +2,10 @@
 # -*- coding: utf-8 -*-
 
 import numpy as np
-from pre_post_process import load_data, split_data
+from data_process import load_data, split_data
 dat_dir = '../data/'
 
-_, ratings = load_data(dat_dir + "data_train.csv")
-sample_ids, _ = load_data(dat_dir + "sample_submission.csv")
+ratings = load_data(dat_dir + "data_train.csv")
 print(np.shape(ratings))
 
 _, train, test = split_data(ratings, p_test=0.1)
@@ -20,29 +19,28 @@ bias_test = get_bias_test(test, overal_bias, bias_u_train, bias_i_train)
 
 # Grid Search:
 grid = np.zeros((3, 4, 4))
-gamma = 0.025 # best gamma we found above
-num_epochs = 20
-lambdas_user = np.logspace(-3,0,4)[::-1] #From max to min
-lambdas_item = np.logspace(-3,0,4)[::-1]
+gamma = 0.025
 num_features = np.array([20, 50, 100])
-min_loss = 100000
+lambda_user = np.logspace(-3,0,4)[::-1]
+lambda_item = np.logspace(-3,0,4)[::-1]
+num_epochs = 20
+
 best_user_features = []
 best_item_features = []
 
 tempt_dir = '../submit/'
 
-for x,K in enumerate(num_features):
-    ### Warm start: directly start computation from previously computed item_features and user_features and not random initialization 
-    user_init, item_init = init_MF(train, int(K))
-    for y,lambda_u in enumerate(lambdas_user):
-        for z,lambda_i in enumerate(lambdas_item):
+loss_least = 99999
+for i,K in enumerate(num_features):
+    user_features, item_features = init_MF(train, int(K))
+    for y,lambda_u in enumerate(lambda_user):
+        for z,lambda_i in enumerate(lambda_item):
             print("K = {}, lambda_u = {}, lambda_i = {}".format(int(K), lambda_u, lambda_i))
-            item_feats, user_feats, rmse = matrix_factorization_SGD(bias_train, bias_test, gamma, int(K), lambda_u, lambda_i, num_epochs, user_init, item_init)
-            ### For warm start, we keep the user_features and item_features that gave us the minimal rmse previously computed
+            item_feats, user_feats, rmse = matrix_factorization_SGD(bias_train, bias_test, gamma, int(K), lambda_u, lambda_i, num_epochs, user_features, item_features)
             if rmse < min_loss:
                 min_loss = rmse
-#                 user_init = user_feats
-#                 item_init = item_feats
+#               user_features = user_feats
+#               item_features = item_feats
                 best_user_features = np.copy(user_feats)
                 best_item_features = np.copy(item_feats)
             grid[x, y, z] = rmse

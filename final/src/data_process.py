@@ -103,6 +103,10 @@ def create_submission(prediction, dat_dir ='../data/', sub_dir ='../submit/'):
     
     prediction_list = []
     
+    # Set predictions above 5 (below 1) to 5 (1)
+    prediction[ np.where(prediction > 5.0)] = 5.0
+    prediction[ np.where(prediction < 1.0)] = 1.0
+    
     # get the prediction value for each (user, movie) pair from the prediction matrix
     for i in range(submission['Id'].count()):
         prediction_list.append(np.round(prediction[int(column[i]) - 1, int(row[i]) - 1]))
