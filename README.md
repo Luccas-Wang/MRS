@@ -30,11 +30,7 @@
 > #### Note for running implement_surprise.py, some other libraries are required. Please refer to the script for details.
 
 ### Introduction
-				
-1. Report : this is where you will discover how we tackled the competition.
-
-2. Notebooks : 
-
+1. Notebook : 
 	- xxx.ipynb: Notebook using the User - user collaborative filtering technique. Here are the following steps of the notebook:
 		
 		1. Load the data, divide the ratings matrix in training and testing set.
@@ -44,7 +40,7 @@
 		5. Compute the wanted predictions on the whole ratings (no test), using the algorithm with the best found parameters.
 		6. Creation of csv file for the submission.
 
-3. Python modules :
+2. Python modules :
 
     - pre_post_process.py : This module allows us to transform the data of a csv file into a sparse ratings matrix and functions to convert the final made predictions in a csv file of the correct format expected by the Kaggle competition. It contains the following important functions:
 							
@@ -58,7 +54,7 @@
 ### Submission
 To run run.py:
 - On Mac/Windows : 
-  - Open the Terminal, enter the zipped folder, enter to the folder *./src/*; 
-  - To execute in  *./src/*, enter : python run.py;
+  - Open the Terminal, enter the zipped folder, enter to the folder **./src/**; 
+  - To execute in  **./src/**, enter : python run.py;
   - submission.py is generated in *../submit/*;
-  - item_feats_SGD.npy and user_feats_SGD.npy are stored in *../data/*.
+  - item_feats_SGD.npy and user_feats_SGD.npy are stored in **../data/**.
