@@ -1,14 +1,21 @@
 # EPFL CS-433 - Project II: Recommender System
 
 ## Contents
-- README.MD
+- README.MD (this)
 - submit
-  - 
+  - submission.csv (with RMSE of 1.025)
 - data
-  - 
+  - data_train.csv (original data)
+  - sample_submission.csv (original data)
+  - item_feats_SGD.npy (latent features of items after training using SGD)
+  - user_feats_SGD.npy (latent features of users after training using SGD)
 - src
-  - 
-
+  - data_process.py (module for data preprocess and results submission)
+  - SGD_helpers.py (module for SGD, mostly matching the lab)
+  - MF_helpers.py (module for the bias matrix factorization and user-item ratings matrix)
+  
+  
+# Codes
 - PDF Report of the Project
 - 1 iPython Notebooks: Recommender_Collaborative.ipynb, Recommender_Factorization.ipynb, Recommender_Surprise.ipynb
 - 5 python modules : pre_post_process.py, collaborative.py, SGD_helpers.py, bias_helpers.py run.py
