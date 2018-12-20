@@ -13,9 +13,10 @@
   - data_process.py (module for data preprocess and results submission)
   - SGD_helpers.py (module for SGD, mostly matching the lab)
   - MF_helpers.py (module for the bias matrix factorization and user-item ratings matrix)
+  ---
+  - run.py (main script for submission the final results)
   
-  
-# Codes
+## Codes
 - PDF Report of the Project
 - 1 iPython Notebooks: Recommender_Collaborative.ipynb, Recommender_Factorization.ipynb, Recommender_Surprise.ipynb
 - 5 python modules : pre_post_process.py, collaborative.py, SGD_helpers.py, bias_helpers.py run.py
