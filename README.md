@@ -54,7 +54,11 @@
 				
 				
     - run.py : This module executes the program
-    
-To run the run.py module :
-- On Mac : open the Terminal, enter your path to the folder where the Python modules are, enter the following command : chmod +x run.py. To execute enter : python run.py
-- On Windows: open the Terminal, enter your path to the folder where the Python modules are. To execute enter : python run.py
+
+### Submission
+To run run.py:
+- On Mac/Windows : 
+open the Terminal, enter the zipped folder, enter to the folder *./src/*; 
+To execute enter : python run.py;
+submission.py is in *./submit/*;
+item_feats_SGD.npy and user_feats_SGD.npy are in *./submit/*.
