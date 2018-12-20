@@ -1,5 +1,7 @@
 # MRS
 
+> #### Contents
+
 ## Contents
 - PDF Report of the Project
 - 1 iPython Notebooks: Recommender_Collaborative.ipynb, Recommender_Factorization.ipynb, Recommender_Surprise.ipynb
