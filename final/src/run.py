@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-
 import numpy as np
 import scipy.sparse as sp
 from data_process import load_data, split_data
@@ -11,18 +10,15 @@ sub_dir = '../submit/'
 
 from SGD_helpers import  init_MF, matrix_factorization_SGD
 
-
 if __name__ == '__main__':
-    
-    
     # Load the data in sparse matrices
     print("Load user-item ratings...",flush=True,end='')
-    ratings = load_data(dat_dir + "data_train.csv")
     print('end')
+    ratings = load_data(dat_dir + "data_train.csv")
     
     print("Split data: 90% for training, 10% for testing...",flush=True,end='')
-    valid_ratings, train, test = split_data(ratings, p_test=0.1)
     print('end')
+    valid_ratings, train, test = split_data(ratings, p_test=0.1)
          
     # Innitilize modle with the tuned hyperparameters by grid search
     print("Innitialize model...",flush=True,end='')
