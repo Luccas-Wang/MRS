@@ -13,9 +13,12 @@
   - data_process.py (module for data preprocess and results submission)
   - SGD_helpers.py (module for SGD, mostly matching the lab)
   - MF_helpers.py (module for the bias matrix factorization and user-item ratings matrix)
-  ---
+
   - run.py (main script for submiting the final results)
-  - run.py (main script for submiting the final results)
+  
+  - gs_reg_MF.py (script for grid search of the regularized matrix factorization)
+  - gs_biased_MF.py (script for grid search of the regularized matrix factorization)
+  - implement_surprise.py (script for cross validation using library surprise)
 
 ## Codes
 ### Prerequisites
