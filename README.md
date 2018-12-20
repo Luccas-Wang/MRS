@@ -20,6 +20,14 @@
   - gs_biased_MF.py (script for grid search of the regularized matrix factorization)
   - implement_surprise.py (script for cross validation using library surprise)
 
+## Submission
+To run run.py:
+- On Mac/Windows : 
+  - Open the Terminal, enter the zipped folder, enter to the folder **./src/**; 
+  - To execute in  **./src/**, enter : python run.py;
+  - submission.py is generated in *../submit/*;
+  - item_feats_SGD.npy and user_feats_SGD.npy are stored in **../data/**.
+  
 ## Codes
 ### Prerequisites
 - Python 3.6+
@@ -31,13 +39,13 @@
 
 ### Introduction
 1. Notebook : 
-	- xxx.ipynb: Notebook using the User - user collaborative filtering technique. Here are the following steps of the notebook:
+	- Recommender_MF.ipynb: recorded how we analyzed the user-item ratings matrix and how we implemented the regularized MF and the biased MF. The notebook is organized as follows:
 		
-		1. Load the data, divide the ratings matrix in training and testing set.
-		2. Statistics on the dataset
-		3. Presentation of the algorithm used: similarity metrics, how to compute the predictions
-		4. Find best parameters (similarity matrix and number K of best neighbors to keep for each user) by running the algorithm numerous times with different parameters: train on training ratings and test on testing ratings with RMSE.
-		5. Compute the wanted predictions on the whole ratings (no test), using the algorithm with the best found parameters.
+		1. Load data, split the ratings matrix into training and testing set
+		2. Statistics analysis
+		3. Presentation of the MF methods used
+		4. Grid search of the best parameters (This part has been reorganized in gs_reg_MF.py and gs_biased_MF.py)
+		5. Compute the predictions
 		6. Creation of csv file for the submission.
 
 2. Python modules :
@@ -50,11 +58,3 @@
 				
 				
     - run.py : This module executes the program
-
-### Submission
-To run run.py:
-- On Mac/Windows : 
-  - Open the Terminal, enter the zipped folder, enter to the folder **./src/**; 
-  - To execute in  **./src/**, enter : python run.py;
-  - submission.py is generated in *../submit/*;
-  - item_feats_SGD.npy and user_feats_SGD.npy are stored in **../data/**.
