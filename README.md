@@ -1,4 +1,5 @@
-# EPFL Machine Learning CS-433 - Project II: Recommender System
+# EPFL Machine Learning CS-433 - Project II
+# Recommender System
 
 > #### Contents
 
